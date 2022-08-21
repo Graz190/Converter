@@ -9,7 +9,7 @@ public class Converter {
         exchange_Rates.put("CZK",24.213);
     }
 
-    public double convort(double converterMoney, String currencie ){
+    public double convert(double converterMoney, String currencie ){
         try {
             return (converterMoney*exchange_Rates.get(currencie.toUpperCase()))/1;
         } catch (NullPointerException e) {
@@ -17,8 +17,8 @@ public class Converter {
         }
         return 0;
     }
-    
+
     public static void main(String[] args) {
-        System.out.println("Money Converted= "+new Converter().convort(14.00000,"usd"));
+        System.out.println("Money Converted= "+new Converter().convert(14.00000,"usd"));
     }
 }
