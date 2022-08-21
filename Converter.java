@@ -3,7 +3,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Converter {    
+    
     private HashMap<String, Double> exchange_Rates= new HashMap<String, Double>();
+
     Converter(){
         exchange_Rates.put("USD",1.4373);
         exchange_Rates.put("JPY",115.20);
