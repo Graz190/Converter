@@ -1,4 +1,4 @@
-public class converter {
+public class Converter {
     double exchange_Rates = 1.4373;
     public double convort(double converterMoney){
         
