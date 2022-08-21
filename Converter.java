@@ -5,4 +5,7 @@ public class Converter {
         return (converterMoney*exchange_Rates)/1;
         
     }
+    public static void main(String[] args) {
+        System.out.println(new Converter().convort(10.00000));
+    }
 }
