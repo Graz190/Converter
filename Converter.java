@@ -21,10 +21,16 @@ public class Converter {
 
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
-        System.out.println("Bitte Geldmenge eingeben");
-        String converterMoney = scanner.nextLine();
-        System.out.println("Bitte Währungsart eingeben");
-        String currencie = scanner.nextLine();
-        System.out.println("Money Converted= "+new Converter().convert(Double.valueOf(converterMoney),currencie));
+        try {
+            System.out.println("Bitte Geldmenge eingeben");
+            String converterMoney = scanner.nextLine();
+            System.out.println("Bitte Währungsart eingeben");
+            String currencie = scanner.nextLine();
+            System.out.println("Money Converted= "+new Converter().convert(Double.valueOf(converterMoney),currencie));
+        } catch (Exception e) {
+            System.err.println("Ein Fehler ist unterlaufen "+ e);
+        }finally{
+            scanner.close();
+        }
     }
 }
