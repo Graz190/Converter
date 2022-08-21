@@ -10,9 +10,14 @@ public class Converter {
     }
 
     public double convort(double converterMoney, String currencie ){
-        return (converterMoney*exchange_Rates.get(currencie.toUpperCase()))/1;
+        try {
+            return (converterMoney*exchange_Rates.get(currencie.toUpperCase()))/1;
+        } catch (NullPointerException e) {
+            System.err.println("\u001B[31m Keine Währung mit diesen Kürzel vorhanden \u001B[0m");
+        }
+        return 0;
     }
-
+    
     public static void main(String[] args) {
         System.out.println("Money Converted= "+new Converter().convort(14.00000,"usd"));
     }
