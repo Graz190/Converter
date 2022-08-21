@@ -1,8 +1,9 @@
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Converter {    
-    HashMap<String, Double> exchange_Rates= new HashMap<String, Double>();
+    private HashMap<String, Double> exchange_Rates= new HashMap<String, Double>();
     Converter(){
         exchange_Rates.put("USD",1.4373);
         exchange_Rates.put("JPY",115.20);
@@ -10,7 +11,7 @@ public class Converter {
         exchange_Rates.put("CZK",24.213);
     }
 
-    public double convert(double converterMoney, String currencie ){
+    private double convert(double converterMoney, String currencie ){
         try {
             return (converterMoney*exchange_Rates.get(currencie.toUpperCase()))/1;
         } catch (NullPointerException e) {
@@ -18,15 +19,16 @@ public class Converter {
         }
         return 0;
     }
-
-    public static void main(String[] args) {
+    
+    public void printConvert(){
+        DecimalFormat df = new DecimalFormat("#.##");
         var scanner = new Scanner(System.in);
         try {
             System.out.println("Bitte Geldmenge eingeben");
             String converterMoney = scanner.nextLine();
             System.out.println("Bitte Währungsart eingeben");
             String currencie = scanner.nextLine();
-            System.out.println("Money Converted= "+new Converter().convert(Double.valueOf(converterMoney),currencie));
+            System.out.println("Money Converted= "+df.format(new Converter().convert(Double.valueOf(converterMoney),currencie)));
         } catch (Exception e) {
             System.err.println("Ein Fehler ist unterlaufen "+ e);
         }finally{
