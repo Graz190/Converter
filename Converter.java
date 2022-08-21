@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Converter {    
     HashMap<String, Double> exchange_Rates= new HashMap<String, Double>();
@@ -19,6 +20,11 @@ public class Converter {
     }
 
     public static void main(String[] args) {
-        System.out.println("Money Converted= "+new Converter().convert(14.00000,"usd"));
+        var scanner = new Scanner(System.in);
+        System.out.println("Bitte Geldmenge eingeben");
+        String converterMoney = scanner.nextLine();
+        System.out.println("Bitte Währungsart eingeben");
+        String currencie = scanner.nextLine();
+        System.out.println("Money Converted= "+new Converter().convert(Double.valueOf(converterMoney),currencie));
     }
 }
