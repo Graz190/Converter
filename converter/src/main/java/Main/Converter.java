@@ -1,6 +1,6 @@
+package Main;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Converter {    
     
@@ -24,13 +24,19 @@ public class Converter {
     
     public void printConvert(){
         DecimalFormat df = new DecimalFormat("#.##");
-        var scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         try {
+            Set<String> keys = exchange_Rates.keySet();
+            System.out.println("Währungen: ");
+            for(String key :keys){
+                System.out.println(key+"\n");
+            }
+
             System.out.println("Bitte Geldmenge eingeben");
             String converterMoney = scanner.nextLine();
             System.out.println("Bitte Währungsart eingeben");
             String currencie = scanner.nextLine();
-            System.out.println("Money Converted= "+df.format(new Converter().convert(Double.valueOf(converterMoney),currencie)));
+            System.out.println("Money Converted= "+df.format(new Converter().convert(Double.valueOf(converterMoney),currencie))+ " "+ currencie.toUpperCase());
         } catch (Exception e) {
             System.err.println("Ein Fehler ist unterlaufen "+ e);
         }finally{

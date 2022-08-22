@@ -1,6 +1,8 @@
-public class main{
+package Main;
+
+public class Main {
     public static void main(String[] args) {
-        var converter = new Converter();
+        Converter converter = new Converter();
         converter.printConvert();
     }
 }
